@@ -1,14 +1,14 @@
 <template>
   <div class="about">
     <div class="card">
-      <h1 style="font-size: 2rem; margin-bottom: 1rem; color: #333;">关于TechBlog</h1>
+      <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: #ffd700; text-align: center; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">👑 关于帝王博客 👑</h1>
       
       <div class="about-content" style="line-height: 1.8;">
-        <p style="margin-bottom: 1rem;">
-          TechBlog是一个基于现代Web技术栈构建的个人技术博客平台，旨在分享技术知识和开发经验。
+        <p style="margin-bottom: 1rem; color: #e6d8ff; font-size: 1.1rem; text-align: center; font-style: italic;">
+          ✦ 帝王博客是一个基于紫金配色设计的奢华技术分享平台，融合帝王风范与现代技术 ✦
         </p>
         
-        <h2 style="margin: 2rem 0 1rem 0; color: #667eea;">技术栈</h2>
+        <h2 style="margin: 2rem 0 1rem 0; color: #ffd700; border-left: 4px solid #ffd700; padding-left: 1rem;">🏛️ 帝王技术栈</h2>
         <ul style="margin-left: 2rem; margin-bottom: 2rem;">
           <li><strong>前端:</strong> Vue 3 + Vue Router</li>
           <li><strong>后端:</strong> Supabase (PostgreSQL + 实时API)</li>
@@ -16,7 +16,7 @@
           <li><strong>构建工具:</strong> Vite</li>
         </ul>
         
-        <h2 style="margin: 2rem 0 1rem 0; color: #667eea;">功能特性</h2>
+        <h2 style="margin: 2rem 0 1rem 0; color: #ffd700; border-left: 4px solid #ffd700; padding-left: 1rem;">👑 帝王特性</h2>
         <ul style="margin-left: 2rem; margin-bottom: 2rem;">
           <li>响应式设计，支持移动端和桌面端</li>
           <li>文章分类管理</li>
@@ -25,7 +25,7 @@
           <li>快速的内容加载</li>
         </ul>
         
-        <h2 style="margin: 2rem 0 1rem 0; color: #667eea;">数据库设计</h2>
+        <h2 style="margin: 2rem 0 1rem 0; color: #ffd700; border-left: 4px solid #ffd700; padding-left: 1rem;">💎 帝王数据库</h2>
         <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin-bottom: 2rem;">
           <h3 style="color: #333; margin-bottom: 0.5rem;">posts表 (博客文章)</h3>
           <p style="margin-bottom: 1rem;">存储博客文章的基本信息</p>

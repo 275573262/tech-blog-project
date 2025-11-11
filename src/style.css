@@ -1,4 +1,4 @@
-/* 全局样式 */
+/* 帝王风范紫金配色 - 全局样式 */
 * {
   margin: 0;
   padding: 0;
@@ -6,10 +6,11 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f8f9fa;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  line-height: 1.8;
+  color: #2c1810;
+  background: linear-gradient(135deg, #1a0a2e 0%, #2d1b69 50%, #1a0a2e 100%);
+  min-height: 100vh;
 }
 
 .container {
@@ -18,12 +19,24 @@ body {
   padding: 0 20px;
 }
 
-/* 导航栏样式 */
+/* 帝王导航栏 */
 .navbar {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 1rem 0;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #4a1c6b 0%, #8b5cf6 50%, #4a1c6b 100%);
+  color: #ffd700;
+  padding: 1.5rem 0;
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+  border-bottom: 3px solid #ffd700;
+  position: relative;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffd700, transparent);
 }
 
 .navbar .container {
@@ -33,107 +46,242 @@ body {
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .nav-links a {
-  color: white;
+  color: #ffd700;
   text-decoration: none;
-  transition: opacity 0.3s;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .nav-links a:hover {
-  opacity: 0.8;
+  background: rgba(255, 215, 0, 0.1);
+  border-color: #ffd700;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
 }
 
-/* 主要内容区域 */
+/* 帝王主要内容区域 */
 .main-content {
-  min-height: calc(100vh - 140px);
-  padding: 2rem 0;
+  min-height: calc(100vh - 200px);
+  padding: 3rem 0;
 }
 
-/* 卡片样式 */
+/* 奢华卡片样式 */
 .card {
-  background: white;
-  border-radius: 10px;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
+  background: linear-gradient(145deg, #2d1b69 0%, #4a1c6b 100%);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 
+    0 8px 32px rgba(139, 92, 246, 0.2),
+    0 2px 8px rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+  transition: left 0.6s ease;
 }
 
 .card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 
+    0 15px 40px rgba(139, 92, 246, 0.4),
+    0 5px 15px rgba(255, 215, 0, 0.2);
 }
 
-/* 按钮样式 */
+.card:hover::before {
+  left: 100%;
+}
+
+/* 帝王按钮样式 */
 .btn {
-  background: #667eea;
-  color: white;
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  color: #4a1c6b;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
   cursor: pointer;
-  transition: background 0.3s;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
 }
 
 .btn:hover {
-  background: #5a6fd8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
 }
 
-/* 文章列表样式 */
+.btn:hover::before {
+  left: 100%;
+}
+
+/* 奢华文章列表 */
 .post-list {
   display: grid;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .post-item {
-  border-left: 4px solid #667eea;
+  border-left: 6px solid #ffd700;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.post-item::before {
+  content: '✦';
+  position: absolute;
+  left: -12px;
+  top: 0;
+  color: #ffd700;
+  font-size: 1.5rem;
 }
 
 .post-title {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffd700;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
 .post-meta {
-  color: #666;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
+  color: #d4af37;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.post-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .post-excerpt {
-  color: #555;
-  line-height: 1.6;
+  color: #e6d8ff;
+  line-height: 1.8;
+  font-size: 1.1rem;
 }
 
-/* 加载状态 */
+/* 帝王加载状态 */
 .loading {
   text-align: center;
+  padding: 4rem;
+  color: #ffd700;
+  font-size: 1.2rem;
+}
+
+.loading::after {
+  content: '✦';
+  animation: spin 2s linear infinite;
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 评论区域奢华样式 */
+.comment-section {
+  background: linear-gradient(145deg, #2d1b69 0%, #3a1c5a 100%);
+  border-radius: 15px;
   padding: 2rem;
-  color: #666;
+  margin-top: 2rem;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.comment-form input,
+.comment-form textarea {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  color: #ffd700;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.comment-form input::placeholder,
+.comment-form textarea::placeholder {
+  color: #d4af37;
+}
+
+.comment-item {
+  background: rgba(255, 215, 0, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
   .navbar .container {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
   }
   
   .nav-links {
-    gap: 1rem;
+    gap: 1.5rem;
   }
   
   .container {
     padding: 0 15px;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+  }
+  
+  .card {
+    padding: 1.5rem;
   }
 }

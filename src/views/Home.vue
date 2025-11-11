@@ -1,8 +1,11 @@
 <template>
   <div class="home">
     <div class="hero-section" style="text-align: center; margin-bottom: 3rem;">
-      <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: #333;">欢迎来到TechBlog</h1>
-      <p style="font-size: 1.2rem; color: #666;">分享技术，记录成长</p>
+      <h1 style="font-size: 3rem; margin-bottom: 1rem; color: #ffd700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">🏛️ 欢迎来到帝王博客 🏛️</h1>
+      <p style="font-size: 1.5rem; color: #d4af37; font-style: italic;">紫金配色，帝王风范 - 尊贵的技术分享平台</p>
+      <div style="margin-top: 1rem; font-size: 1.2rem; color: #e6d8ff;">
+        <span>✦ 奢华体验 ✦ 尊贵视觉 ✦ 帝王品质 ✦</span>
+      </div>
     </div>
     
     <div v-if="loading" class="loading">加载中...</div>
