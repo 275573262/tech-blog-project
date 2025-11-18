@@ -1,0 +1,261 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 16,
+              "triggerAtMinute": 19
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -560,
+        -208
+      ],
+      "id": "c0229ce6-677c-4a1e-8a5b-e27a1433d5db",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "url": "https://apis.netstart.cn/maoyan/index/comingList?ci=1&limit=10",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -320,
+        -208
+      ],
+      "id": "b9482b13-0cd0-4a77-8923-784897b6d44c",
+      "name": "HTTP Request",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "coming",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -96,
+        -192
+      ],
+      "id": "3df979a2-3a9b-4592-9501-11b8f3730da1",
+      "name": "Split Out",
+      "alwaysOutputData": true,
+      "executeOnce": false,
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://oapi.dingtalk.com/robot/send?access_token=5286d20a6174ded5e5c9df90610d179285d6f635e1f40fa6b4825f2b68b92fff",
+        "authentication": "genericCredentialType",
+        "sendHeaders": true,
+        "specifyHeaders": "json",
+        "jsonHeaders": "{\n  \"Content-Type\": \"application/json\"\n}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"msgtype\": \"text\",\n  \"text\": {\n    \"content\": \"电影资讯：\\n《{{ $json.nm }}》\\n📅 上映日期：{{ $json.rt }}\\n🎬 主演：{{ $json.star }}\\n❤️ 想看人数：{{ $json.wish }}人\\n🖼️ 海报链接：{{ $json.img }}\\n（点击链接查看详情）\"\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        192,
+        -384
+      ],
+      "id": "d92825e7-c6cf-45d1-af63-441a18428482",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "resource": "bitable",
+        "operation": "bitable:table:record:batchAdd",
+        "app_toke": "IIaebMnArad0Fxsv10vcNmsynQe",
+        "table_id": "tblYzmtuPDSym4OJ",
+        "body": "{\n  \n}"
+      },
+      "type": "n8n-nodes-feishu-lite.feishuNode",
+      "typeVersion": 1,
+      "position": [
+        -256,
+        560
+      ],
+      "id": "b0cb3653-c1f8-41ec-8ad2-e6061bd1156b",
+      "name": "Bitable:table:record:batchAdd bitable",
+      "credentials": {
+        "feishuCredentialsApi": {
+          "id": "GZIsRXgUR0QrhqE4",
+          "name": "Feishu Credentials account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "电影资讯：\n《一只绣花鞋》\n📅 上映日期：2025-11-11\n🎬 主演：刘超,陶德燕,王迎奇\n❤ 想看人数：21719人\n《菜肉馄饨》\n📅 上映日期：2025-11-15\n🎬 主演：周野芒,潘虹,茅善玉\n❤ 想看人数：7236人《洛桑的家事》\n📅 上映日期：2025-11-11\n🎬 主演：金巴,加华草,扎西\n❤ 想看人数：1769人电影资讯：\n《鬼灭之刃：无限城篇 第一章 猗窝座再袭》\n📅 上映日期：2025-11-14\n🎬 主演：花江夏树,鬼头明里,下野纮\n❤ 想看人数：662094人惊天魔盗团3》\n📅 上映日期：2025-11-14\n🎬 主演：杰西·艾森伯格,伍迪·哈里森,戴夫·弗兰科\n❤ 想看人数：305993人《寻砖》\n📅 上映日期：2025-11-14\n🎬 主演：张亮,鄂靖文,刘俊孝\n❤ 想看人数：331人《三滴血》\n📅 上映日期：2025-11-15\n🎬 主演：胡歌,文淇,高子淇\n❤ 想看人数：17925人《次仁的夏天》\n📅 上映日期：2025-11-16\n🎬 主演：巴金旺甲,伍金尼玛,南措卓玛\n❤ 想看人数：128人《红豆》\n📅 上映日期：2025-11-15\n🎬 主演：任达华,邓丽欣,魏浚笙\n❤ 想看人数：276人",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        -464,
+        560
+      ],
+      "id": "a4f6fdb6-f2ae-4c8f-8357-104e770a99a2",
+      "name": "AI Agent",
+      "alwaysOutputData": false,
+      "executeOnce": false,
+      "retryOnFail": false,
+      "notesInFlow": false
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"records\": [\n    {\n      \"fields\": {\n        \"上映日期\": \"{{ items[0].json.rt }}\",\n        \"主演\": \"{{ items[0].json.star }}\",\n        \"想看人数\": {{ items[0].json.wish }}\n      }\n    },\n    {\n      \"fields\": {\n        \"上映日期\": \"{{ items[1].json.rt }}\",\n        \"主演\": \"{{ items[1].json.star }}\",\n        \"想看人数\": {{ items[1].json.wish }}\n      }\n    },\n    {\n      \"fields\": {\n        \"上映日期\": \"{{ items[2].json.rt }}\",\n        \"主演\": \"{{ items[2].json.star }}\",\n        \"想看人数\": {{ items[2].json.wish }}\n      }\n    },\n    {\n      \"fields\": {\n        \"上映日期\": \"{{ items[3].json.rt }}\",\n        \"主演\": \"{{ items[3].json.star }}\",\n        \"想看人数\": {{ items[3].json.wish }}\n      }\n    },\n    {\n      \"fields\": {\n        \"上映日期\": \"{{ items[4].json.rt }}\",\n        \"主演\": \"{{ items[4].json.star }}\",\n        \"想看人数\": {{ items[4].json.wish }}\n      }\n    },\n    {\n      \"fields\": {\n        \"上映日期\": \"{{ items[5].json.rt }}\",\n        \"主演\": \"{{ items[5].json.star }}\",\n        \"想看人数\": {{ items[5].json.wish }}\n      }\n    },\n    {\n      \"fields\": {\n        \"上映日期\": \"{{ items[6].json.rt }}\",\n        \"主演\": \"{{ items[6].json.star }}\",\n        \"想看人数\": {{ items[6].json.wish }}\n      }\n    },\n    {\n      \"fields\": {\n        \"上映日期\": \"{{ items[7].json.rt }}\",\n        \"主演\": \"{{ items[7].json.star }}\",\n        \"想看人数\": {{ items[7].json.wish }}\n      }\n    },\n    {\n      \"fields\": {\n        \"上映日期\": \"{{ items[8].json.rt }}\",\n        \"主演\": \"{{ items[8].json.star }}\",\n        \"想看人数\": {{ items[8].json.wish }}\n      }\n    },\n    {\n      \"fields\": {\n        \"上映日期\": \"{{ items[9].json.rt }}\",\n        \"主演\": \"{{ items[9].json.star }}\",\n        \"想看人数\": {{ items[9].json.wish }}\n      }\n    }\n  ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        336,
+        592
+      ],
+      "id": "ad8f258f-9588-4bea-9e27-2337065ac7b5",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatDeepSeek",
+      "typeVersion": 1,
+      "position": [
+        384,
+        304
+      ],
+      "id": "b2b432f5-283b-4b13-8d22-319c4e93fe31",
+      "name": "DeepSeek Chat Model",
+      "credentials": {
+        "deepSeekApi": {
+          "id": "BJxcfskAoO1J3wrA",
+          "name": "DeepSeek account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://oapi.dingtalk.com/robot/send?access_token=181b5f081acb3a882a7da651dfdd1a313b47fe775cb3628814ce106881fe0ff3",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendHeaders": true,
+        "specifyHeaders": "json",
+        "jsonHeaders": "{\n  \"Content-Type\": \"application/json\"\n}\n",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"msgtype\": \"text\",\n  \"text\": {\n    \"content\": \"电影资讯：\\n《{{ $json.nm }}》\\n📅 上映日期：{{ $json.rt }}\\n🎬 主演：{{ $json.star }}\\n❤️ 想看人数：{{ $json.wish }}人\\n🖼️ 海报链接：{{ $json.img }}\\n（点击链接查看详情）\"\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        240,
+        -80
+      ],
+      "id": "1d518d4e-0744-4b18-b034-e881fa0b50f6",
+      "name": "HTTP Request2",
+      "notesInFlow": true,
+      "notes": "feishu"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        []
+      ]
+    },
+    "DeepSeek Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "125def32-ed7e-4c35-ad11-306037d5b68f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "7e3aa5d5b80f925fee4e154be54d5825cc1c8255b0d237730584448144473b98"
+  },
+  "id": "qaieJMpY48MGZNlh",
+  "tags": []
+}

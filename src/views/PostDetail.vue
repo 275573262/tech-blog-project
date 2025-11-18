@@ -11,7 +11,7 @@
         ← 返回
       </button>
       
-      <h1 style="font-size: 2rem; margin-bottom: 1rem; color: #333;">{{ post.title }}</h1>
+      <h1 style="font-size: 2rem; margin-bottom: 1rem; color: #ffd700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">{{ post.title }}</h1>
       
       <div class="post-meta" style="margin-bottom: 2rem;">
         <span>分类: {{ post.categories?.name || '未分类' }}</span>
@@ -19,45 +19,43 @@
         <span>发布时间: {{ formatDate(post.created_at) }}</span>
       </div>
       
-      <div class="post-content" style="line-height: 1.8; margin-bottom: 2rem;">
-        <p v-for="(paragraph, index) in post.content.split('\n')" :key="index">
+      <div class="post-content" style="line-height: 1.8; margin-bottom: 2rem; color: #f0e6ff; font-size: 1.1rem;">
+        <p v-for="(paragraph, index) in post.content.split('\n')" :key="index" style="margin-bottom: 1rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
           {{ paragraph }}
         </p>
       </div>
       
       <!-- 评论区域 -->
       <div class="comments-section">
-        <h3 style="margin-bottom: 1rem;">评论 ({{ post.comments?.length || 0 }})</h3>
+        <h3 style="margin-bottom: 1rem; color: #ffd700; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">评论 ({{ post.comments?.length || 0 }})</h3>
         
         <div v-if="post.comments && post.comments.length > 0" class="comments-list">
           <div 
             v-for="comment in post.comments" 
             :key="comment.id" 
             class="comment-item"
-            style="border-left: 3px solid #667eea; padding-left: 1rem; margin-bottom: 1rem;"
+            style="border-left: 3px solid #ffd700; padding-left: 1rem; margin-bottom: 1rem;"
           >
-            <div style="font-weight: bold; margin-bottom: 0.5rem;">{{ comment.author }}</div>
-            <div style="color: #555;">{{ comment.content }}</div>
-            <div style="font-size: 0.8rem; color: #888; margin-top: 0.5rem;">
-              {{ formatDate(comment.created_at) }}
-            </div>
+            <div class="comment-author">{{ comment.author || '匿名用户' }}</div>
+            <div class="comment-content">{{ comment.content }}</div>
+            <div class="comment-time">{{ formatDate(comment.created_at) }}</div>
           </div>
         </div>
         
-        <div v-else style="text-align: center; color: #666; padding: 2rem;">
+        <div v-else style="text-align: center; color: #d4af37; padding: 2rem; font-style: italic;">
           暂无评论，快来发表第一条评论吧！
         </div>
         
         <!-- 添加评论表单 -->
-        <div class="add-comment" style="margin-top: 2rem;">
-          <h4>发表评论</h4>
+        <div class="add-comment comment-form" style="margin-top: 2rem;">
+          <h4 style="color: #ffd700; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); margin-bottom: 1.5rem;">发表评论</h4>
           <form @submit.prevent="submitComment">
             <div style="margin-bottom: 1rem;">
               <input 
                 v-model="newComment.author" 
                 type="text" 
                 placeholder="您的姓名（可选）"
-                style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;"
+                class="comment-input"
               >
             </div>
             <div style="margin-bottom: 1rem;">
@@ -66,7 +64,7 @@
                 placeholder="请输入评论内容"
                 rows="4"
                 required
-                style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;"
+                class="comment-input"
               ></textarea>
             </div>
             <button type="submit" class="btn">发表评论</button>

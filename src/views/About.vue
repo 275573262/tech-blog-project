@@ -9,15 +9,15 @@
         </p>
         
         <h2 style="margin: 2rem 0 1rem 0; color: #ffd700; border-left: 4px solid #ffd700; padding-left: 1rem;">🏛️ 帝王技术栈</h2>
-        <ul style="margin-left: 2rem; margin-bottom: 2rem;">
-          <li><strong>前端:</strong> Vue 3 + Vue Router</li>
-          <li><strong>后端:</strong> Supabase (PostgreSQL + 实时API)</li>
-          <li><strong>部署:</strong> Netlify</li>
-          <li><strong>构建工具:</strong> Vite</li>
+        <ul style="margin-left: 2rem; margin-bottom: 2rem; color: #f0e6ff;">
+          <li><strong style="color: #ffd700;">前端:</strong> Vue 3 + Vue Router</li>
+          <li><strong style="color: #ffd700;">后端:</strong> Supabase (PostgreSQL + 实时API)</li>
+          <li><strong style="color: #ffd700;">部署:</strong> Netlify</li>
+          <li><strong style="color: #ffd700;">构建工具:</strong> Vite</li>
         </ul>
         
         <h2 style="margin: 2rem 0 1rem 0; color: #ffd700; border-left: 4px solid #ffd700; padding-left: 1rem;">👑 帝王特性</h2>
-        <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+        <ul style="margin-left: 2rem; margin-bottom: 2rem; color: #f0e6ff;">
           <li>响应式设计，支持移动端和桌面端</li>
           <li>文章分类管理</li>
           <li>实时评论系统</li>
@@ -26,15 +26,15 @@
         </ul>
         
         <h2 style="margin: 2rem 0 1rem 0; color: #ffd700; border-left: 4px solid #ffd700; padding-left: 1rem;">💎 帝王数据库</h2>
-        <div style="background: #f8f9fa; padding: 1rem; border-radius: 5px; margin-bottom: 2rem;">
-          <h3 style="color: #333; margin-bottom: 0.5rem;">posts表 (博客文章)</h3>
-          <p style="margin-bottom: 1rem;">存储博客文章的基本信息</p>
+        <div style="background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+          <h3 style="color: #ffd700; margin-bottom: 0.5rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">posts表 (博客文章)</h3>
+          <p style="margin-bottom: 1rem; color: #f0e6ff;">存储博客文章的基本信息</p>
           
-          <h3 style="color: #333; margin-bottom: 0.5rem;">categories表 (文章分类)</h3>
-          <p style="margin-bottom: 1rem;">管理文章的分类信息</p>
+          <h3 style="color: #ffd700; margin-bottom: 0.5rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">categories表 (文章分类)</h3>
+          <p style="margin-bottom: 1rem; color: #f0e6ff;">管理文章的分类信息</p>
           
-          <h3 style="color: #333; margin-bottom: 0.5rem;">comments表 (文章评论)</h3>
-          <p style="margin-bottom: 1rem;">存储用户对文章的评论</p>
+          <h3 style="color: #ffd700; margin-bottom: 0.5rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">comments表 (文章评论)</h3>
+          <p style="margin-bottom: 1rem; color: #f0e6ff;">存储用户对文章的评论</p>
         </div>
         
         <div style="text-align: center; padding: 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 10px;">
