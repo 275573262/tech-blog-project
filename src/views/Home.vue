@@ -20,18 +20,18 @@
       >
         <h2 class="post-title">{{ post.title }}</h2>
         <div class="post-meta">
-          <span>分类: {{ post.categories?.name || '未分类' }}</span>
+          <span style="color: #ffd700;">分类:</span> {{ post.categories?.name || '未分类' }}
           <span style="margin: 0 1rem;">|</span>
-          <span>发布时间: {{ formatDate(post.created_at) }}</span>
+          <span style="color: #ffd700;">发布时间:</span> {{ formatDate(post.created_at) }}
           <span style="margin: 0 1rem;">|</span>
-          <span>评论数: {{ post.comments?.[0]?.count || 0 }}</span>
+          <span style="color: #ffd700;">评论数:</span> {{ post.comments?.[0]?.count || 0 }}
         </div>
         <p class="post-excerpt">{{ post.excerpt || post.content?.substring(0, 150) + '...' }}</p>
       </div>
     </div>
     
     <div v-if="!loading && posts.length === 0" class="card" style="text-align: center;">
-      <p>暂无文章，请先配置Supabase数据库</p>
+      <p style="color: #ffd700; font-size: 1.2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">暂无文章，请先配置Supabase数据库</p>
     </div>
   </div>
 </template>

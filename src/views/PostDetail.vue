@@ -13,10 +13,10 @@
       
       <h1 style="font-size: 2rem; margin-bottom: 1rem; color: #ffd700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">{{ post.title }}</h1>
       
-      <div class="post-meta" style="margin-bottom: 2rem;">
-        <span>分类: {{ post.categories?.name || '未分类' }}</span>
+      <div class="post-meta" style="margin-bottom: 2rem; color: #d4af37; font-size: 1.1rem;">
+        <span style="color: #ffd700;">分类:</span> {{ post.categories?.name || '未分类' }}
         <span style="margin: 0 1rem;">|</span>
-        <span>发布时间: {{ formatDate(post.created_at) }}</span>
+        <span style="color: #ffd700;">发布时间:</span> {{ formatDate(post.created_at) }}
       </div>
       
       <div class="post-content" style="line-height: 1.8; margin-bottom: 2rem; color: #f0e6ff; font-size: 1.1rem;">
@@ -74,7 +74,7 @@
     </div>
     
     <div v-else class="card" style="text-align: center;">
-      <p>文章不存在</p>
+      <p style="color: #ffd700; font-size: 1.2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">文章不存在</p>
     </div>
   </div>
 </template>
